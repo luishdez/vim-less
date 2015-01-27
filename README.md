@@ -1,13 +1,14 @@
-# Vim-less: LESS Syntax for VIM editor
+# vim-less: LESS Syntax for VIM editor
 
 This vim bundle adds syntax highlighting, indenting and autocompletion for the
 dynamic stylesheet language [LESS](http://lesscss.org).
 
-This bundle is compatible with [vim-css-color](https://github.com/skammer/vim-css-color),
-[vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax) and possibly other
-plugins that place code
-in `after/syntax/css.vim` or `after/syntax/css/*.vim`.
+* **Update to LESS v2.3.0**
+* [vim-css-color](https://github.com/skammer/vim-css-color) Compatible
+* [vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax) Compatible
+* Any bundle that places css syntax into after/syntax/css/*
 
+---------
 ![vim-less with vim-css-color and vim-css3-syntax (colorscheme solarized)](https://github.com/lenniboy/vim-less/raw/master/screenshot.png)
 
 ## Installing and Using
