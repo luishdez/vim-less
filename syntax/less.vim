@@ -9,7 +9,7 @@ runtime! after/syntax/css/*.vim
 
 syn case ignore
 
-syn region lessDefinition transparent matchgroup=cssBraces start='{' end='}' contains=css.*Attr,css.*Prop,cssComment,cssValue.*,cssColor,cssTagName,cssPseudoClass,cssUrl,cssImportant,cssError,cssStringQ,cssStringQQ,cssFunction,cssUnicodeEscape,lessDefinition,lessComment,lessClassChar,lessVariable,lessMixinChar,lessAmpersandChar,lessFunction,lessNestedSelector,@cssColors fold
+syn region lessDefinition transparent matchgroup=cssBraces start='{' end='}' contains=css.*Attr,css.*Prop,cssVendor,cssComment,cssValue.*,cssColor,cssTagName,cssPseudoClass,cssUrl,cssImportant,cssError,cssStringQ,cssStringQQ,cssFunction,cssUnicodeEscape,lessDefinition,lessComment,lessClassChar,lessVariable,lessMixinChar,lessAmpersandChar,lessFunction,lessNestedSelector,@cssColors fold
 
 syn match lessVariable "@[[:alnum:]_-]\+" contained
 syn match lessVariable "@[[:alnum:]_-]\+" nextgroup=lessVariableAssignment skipwhite
@@ -21,12 +21,13 @@ syn match lessOperator "-" contained
 syn match lessOperator "/" contained
 syn match lessOperator "*" contained
 
-syn match lessNestedSelector "[^/]* {"me=e-1 contained contains=cssTagName,cssAttributeSelector,lessAmpersandChar,lessVariable,lessMixinChar,lessFunction,lessNestedProperty
+syn match lessNestedSelector "[^/]* {"me=e-1 contained contains=cssTagName,cssClassName,cssAttributeSelector,lessAmpersandChar,lessVariable,lessMixinChar,lessFunction,lessNestedProperty
 syn match lessNestedProperty "[[:alnum:]]\+:"me=e-1 contained
 
 syn match lessDefault "!default" contained
 
-syn match lessMixinChar "\.[[:alnum:]_-]\@=" contained nextgroup=lessClass
+syn match lessMixinChar "\.[[:alnum:]_-]\+;"me=e-1 contained nextgroup=lessClass
+syn region lessMixinFunc contained matchgroup=cssFunctionName start="\.[[:alnum:]_-]*(" end=")" oneline extend contains=cssURL,lessVariable,cssStringQ,cssStringQQ,cssColor
 syn match lessAmpersandChar "&" contained nextgroup=lessClass,cssPseudoClass
 syn match lessClass "[[:alnum:]_-]\+" contained
 
@@ -59,6 +60,6 @@ hi def link lessFunction Function
 hi def link lessMixinChar Special
 hi def link lessAmpersandChar Special
 hi def link lessNestedProperty Type
-hi def link lessClass PreProc
+hi def link lessClass Identifier
 
 let b:current_syntax = "less"
