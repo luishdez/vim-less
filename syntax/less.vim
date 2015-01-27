@@ -2,37 +2,34 @@ if exists("b:current_syntax")
   finish
 endif
 
+" {{{ Imports
 runtime! syntax/css.vim
 runtime! after/syntax/css.vim
-" load files from vim-css3-syntax plugin (https://github.com/hail2u/vim-css3-syntax)
 runtime! after/syntax/css/*.vim
+" }}}
 
+" Syntax {{{
 syn case ignore
-
 syn region lessDefinition transparent matchgroup=cssBraces start='{' end='}' contains=css.*Attr,css.*Prop,cssVendor,cssComment,cssValue.*,cssColor,cssTagName,cssPseudoClass,cssUrl,cssImportant,cssError,cssStringQ,cssStringQQ,cssFunction,cssUnicodeEscape,lessDefinition,lessComment,lessClassChar,lessVariable,lessMixinChar,lessAmpersandChar,lessFunction,lessNestedSelector,@cssColors fold
-
 syn match lessVariable "@[[:alnum:]_-]\+" contained
 syn match lessVariable "@[[:alnum:]_-]\+" nextgroup=lessVariableAssignment skipwhite
 syn match lessVariableAssignment ":" contained nextgroup=lessVariableValue skipwhite
 syn match lessVariableValue ".*;"me=e-1 contained contains=lessVariable,lessOperator,lessDefault,cssValue.*,@cssColors "me=e-1 means that the last char of the pattern is not highlighted
-
 syn match lessOperator "+" contained
 syn match lessOperator "-" contained
 syn match lessOperator "/" contained
 syn match lessOperator "*" contained
-
 syn match lessNestedSelector "[^/]* {"me=e-1 contained contains=cssTagName,cssClassName,cssAttributeSelector,lessAmpersandChar,lessVariable,lessMixinChar,lessFunction,lessNestedProperty
 syn match lessNestedProperty "[[:alnum:]]\+:"me=e-1 contained
-
 syn match lessDefault "!default" contained
-
 syn match lessMixinChar "\.[[:alnum:]_-]\+;"me=e-1 contained nextgroup=lessClass
 syn region lessMixinFunc contained matchgroup=cssFunctionName start="\.[[:alnum:]_-]*(" end=")" oneline extend contains=cssURL,lessVariable,cssStringQ,cssStringQQ,cssColor
 syn match lessAmpersandChar "&" contained nextgroup=lessClass,cssPseudoClass
 syn match lessClass "[[:alnum:]_-]\+" contained
+syn match lessComment "//.*$" contains=@Spell
+" }}}
 
-" functions {{{
-
+" Functions {{{
 " misc functions
 syn keyword lessFunction color image-size image-width image-height convert data-uri default unit get-unit svg-gradient containedin=cssDefinition contained
 " string functions
@@ -53,8 +50,7 @@ syn keyword lessFunction saturate desaturate lighten darken fadein fadeout fade 
 syn keyword lessFunction multiply screen overlay softlight hardlight difference exclusion average negation containedin=cssDefinition contained
 " }}}
 
-syn match lessComment "//.*$" contains=@Spell
-
+" {{{ Keyword definitions
 hi def link lessVariable Special
 hi def link lessVariableValue Constant
 hi def link lessDefault Special
@@ -64,5 +60,6 @@ hi def link lessMixinChar Special
 hi def link lessAmpersandChar Special
 hi def link lessNestedProperty Type
 hi def link lessClass Identifier
+" }}}
 
 let b:current_syntax = "less"
