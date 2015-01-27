@@ -9,7 +9,7 @@ runtime! after/syntax/css/*.vim
 
 syn case ignore
 
-syn region lessDefinition transparent matchgroup=cssBraces start='{' end='}' contains=css.*Attr,css.*Prop,cssVendor,cssComment,cssValue.*,cssColor,cssTagName,cssPseudoClass,cssUrl,cssImportant,cssError,cssStringQ,cssStringQQ,cssFunction,cssUnicodeEscape,lessDefinition,lessComment,lessClassChar,lessVariable,lessMixinChar,lessAmpersandChar,lessFunction,lessNestedSelector,@cssColors fold
+syn region lessDefinition transparent matchgroup=cssBraces start='{' end='}' contains=css.*Attr,css.*Prop,cssVendor,cssComment,cssValue.*,cssColor,cssTagName,cssPseudoClass,cssUrl,cssImportant,cssError,cssStringQ,cssStringQQ,cssFunction,cssUnicodeEscape,lessDefinition,lessComment,lessClassChar,lessVariable,lessMixinChar,lessMixinFunc,lessAmpersandChar,lessFunction,lessNestedSelector,@cssColors fold
 
 syn match lessVariable "@[[:alnum:]_-]\+" contained
 syn match lessVariable "@[[:alnum:]_-]\+" nextgroup=lessVariableAssignment skipwhite
@@ -21,7 +21,7 @@ syn match lessOperator "-" contained
 syn match lessOperator "/" contained
 syn match lessOperator "*" contained
 
-syn match lessNestedSelector "[^/]* {"me=e-1 contained contains=cssTagName,cssClassName,cssAttributeSelector,lessAmpersandChar,lessVariable,lessMixinChar,lessFunction,lessNestedProperty
+syn match lessNestedSelector "[^/]* {"me=e-1 contained contains=cssTagName,cssClassName,cssAttributeSelector,lessAmpersandChar,lessVariable,lessMixinChar,lessMixinFunc,lessFunction,lessNestedProperty
 syn match lessNestedProperty "[[:alnum:]]\+:"me=e-1 contained
 
 syn match lessDefault "!default" contained
