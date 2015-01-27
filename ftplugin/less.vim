@@ -20,6 +20,7 @@ setlocal omnifunc=csscomplete#CompleteCSS
 setlocal suffixesadd=.less
 setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,://
 setlocal fo=jcroql
+setlocal foldmethod=syntax
 
 let &l:include = '^\s*@import\s\+\%(url(\)\=["'']\='
 
