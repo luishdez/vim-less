@@ -9,7 +9,7 @@ runtime! after/syntax/css/*.vim
 
 syn case ignore
 
-syn region lessDefinition transparent matchgroup=cssBraces start='{' end='}' contains=css.*Attr,css.*Prop,cssVendor,cssComment,cssValue.*,cssColor,cssTagName,cssPseudoClass,cssUrl,cssImportant,cssError,cssStringQ,cssStringQQ,cssFunction,cssUnicodeEscape,lessDefinition,lessComment,lessClassChar,lessVariable,lessMixinChar,lessMixinFunc,lessAmpersandChar,lessFunction,lessNestedSelector,@cssColors fold
+syn region lessDefinition transparent matchgroup=cssBraces start='{' end='}' contains=css.*Attr,css.*Prop,cssVendor,cssComment,cssValue.*,cssColor,cssTagName,cssPseudoClass,cssUrl,cssImportant,cssError,cssStringQ,cssStringQQ,cssFunction,cssUnicodeEscape,lessDefinition,lessComment,lessClassChar,lessVariable,lessMixinChar,lessAmpersandChar,lessFunction,lessNestedSelector,@cssColors fold
 
 syn match lessVariable "@[[:alnum:]_-]\+" contained
 syn match lessVariable "@[[:alnum:]_-]\+" nextgroup=lessVariableAssignment skipwhite
@@ -21,7 +21,7 @@ syn match lessOperator "-" contained
 syn match lessOperator "/" contained
 syn match lessOperator "*" contained
 
-syn match lessNestedSelector "[^/]* {"me=e-1 contained contains=cssTagName,cssIdentifier,cssClassName,cssPseudoClassId,cssAttributeSelector,lessAmpersandChar,lessVariable,lessMixinChar,lessMixinFunc,lessFunction,lessNestedProperty
+syn match lessNestedSelector "[^/]* {"me=e-1 contained contains=cssTagName,cssClassName,cssAttributeSelector,lessAmpersandChar,lessVariable,lessMixinChar,lessFunction,lessNestedProperty
 syn match lessNestedProperty "[[:alnum:]]\+:"me=e-1 contained
 
 syn match lessDefault "!default" contained
@@ -33,21 +33,24 @@ syn match lessClass "[[:alnum:]_-]\+" contained
 
 " functions {{{
 
-" string functions
-syn keyword lessFunction escape e % containedin=cssDefinition contained
 " misc functions
-syn keyword lessFunction unit containedin=cssDefinition contained
+syn keyword lessFunction color image-size image-width image-height convert data-uri default unit get-unit svg-gradient containedin=cssDefinition contained
+" string functions
+syn keyword lessFunction escape e % replace containedin=cssDefinition contained
+" list functions
+syn keyword lessFunction length extract containedin=cssDefinition contained
 " math functions
-syn keyword lessFunction ceil floor percentage round containedin=cssDefinition contained
+syn keyword lessFunction ceil floor percentage round sqrt abs sin asin cos acos tan atan pi pow mod min max containedin=cssDefinition contained
+" type functions
+syn keyword lessFunction isnumber isstring iscolor iskeyword isurl ispixel isem ispercentage isunit containedin=cssDefinition contained
 " color definition
 syn keyword lessFunction rgb rgba argb hsl hsla hsv hsva containedin=cssDefinition contained
 " color channel information
-syn keyword lessFunction hue saturation lightness red green blue alpha luma containedin=cssDefinition contained
+syn keyword lessFunction hue saturation lightness hsvhue hsvsaturation hsvvalue red green blue alpha luma luminance containedin=cssDefinition contained
 " color operations
 syn keyword lessFunction saturate desaturate lighten darken fadein fadeout fade spin mix greyscale contrast containedin=cssDefinition contained
 " color blending
 syn keyword lessFunction multiply screen overlay softlight hardlight difference exclusion average negation containedin=cssDefinition contained
-
 " }}}
 
 syn match lessComment "//.*$" contains=@Spell
