@@ -21,7 +21,7 @@ syn match lessOperator "-" contained
 syn match lessOperator "/" contained
 syn match lessOperator "*" contained
 
-syn match lessNestedSelector "[^/]* {"me=e-1 contained contains=cssTagName,cssClassName,cssAttributeSelector,lessAmpersandChar,lessVariable,lessMixinChar,lessMixinFunc,lessFunction,lessNestedProperty
+syn match lessNestedSelector "[^/]* {"me=e-1 contained contains=cssTagName,cssIdentifier,cssClassName,cssPseudoClassId,cssAttributeSelector,lessAmpersandChar,lessVariable,lessMixinChar,lessMixinFunc,lessFunction,lessNestedProperty
 syn match lessNestedProperty "[[:alnum:]]\+:"me=e-1 contained
 
 syn match lessDefault "!default" contained
