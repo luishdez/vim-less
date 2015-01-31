@@ -51,7 +51,7 @@ syn keyword lessFunction multiply screen overlay softlight hardlight difference 
 " }}}
 
 " {{{ Keyword definitions
-hi def link lessVariable Special
+hi def link lessVariable Identifier
 hi def link lessVariableValue Constant
 hi def link lessDefault Special
 hi def link lessComment Comment
