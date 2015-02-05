@@ -9,7 +9,7 @@ dynamic stylesheet language [LESS](http://lesscss.org).
 * Any bundle that places css syntax into after/syntax/css/*
 
 ---------
-![vim-less with vim-css-color and vim-css3-syntax (colorscheme solarized)](https://github.com/lenniboy/vim-less/raw/master/screenshot.png)
+![vim-less with vim-css-color and vim-css3-syntax (colorscheme base16-ocean)](https://github.com/luishdez/vim-less/raw/master/screenshot.png)
 
 ## Installing and Using
 
@@ -24,7 +24,7 @@ dynamic stylesheet language [LESS](http://lesscss.org).
     $ cd ~/.vim/bundle
     $ git clone https://github.com/luishdez/vim-less
 
-- OR use [vundle](https://github.com/gmarik/vundle), adding this line to your 
+- OR use [vundle](https://github.com/gmarik/vundle), adding this line to your
   `~/.vimrc`:
 
     Bundle 'luishdez/vim-less'
