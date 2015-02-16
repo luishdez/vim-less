@@ -27,6 +27,7 @@ syn region lessMixinFunc contained matchgroup=cssFunctionName start="\.[[:alnum:
 syn match lessAmpersandChar "&" contained nextgroup=lessClass,cssPseudoClass
 syn match lessClass "[[:alnum:]_-]\+" contained
 syn match lessComment "//.*$" contains=@Spell
+syn keyword lessTodo TODO FIXME NOTE OPTIMIZE XXX contained containedin=cssComment,lessComment
 " }}}
 
 " Functions {{{
@@ -60,6 +61,7 @@ hi def link lessMixinChar Special
 hi def link lessAmpersandChar Special
 hi def link lessNestedProperty Type
 hi def link lessClass Identifier
+hi def link lessTodo Constant
 " }}}
 
 let b:current_syntax = "less"
